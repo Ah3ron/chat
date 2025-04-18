@@ -12,7 +12,7 @@ RUN pnpm add vite --save-dev
 
 COPY . .
 
-CMD [ "pnpm", "run", "build" ]
+RUN pnpm run build
 
 # --- production image ---
 # --- production image ---
