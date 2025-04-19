@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-
+import { SERVER_URL } from "$env/static/public";
 function createChatStore() {
 	let socket;
 	let wsUrl;
@@ -7,10 +7,10 @@ function createChatStore() {
 	const status = writable('disconnected');
 
 	function connect() {
-		if (!import.meta.env.SERVER_URL) {
+		if (SERVER_URL) {
 			wsUrl = 'ws://localhost:3000/ws';
 		} else {
-			wsUrl = "wss://" + import.meta.env.SERVER_URL + "/ws" 
+			wsUrl = "wss://" + SERVER_URL + "/ws"
 		}
 		socket = new WebSocket(wsUrl);
 
