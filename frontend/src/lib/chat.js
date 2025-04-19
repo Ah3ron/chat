@@ -6,7 +6,7 @@ function createChatStore() {
 	const status = writable('disconnected');
 
 	function connect() {
-		const wsUrl = import.meta.env.VITE_WS_URL || 'ws://localhost:3000/ws';
+		const wsUrl = "ws://backend-production-c88a.up.railway.app/ws" || 'ws://localhost:3000/ws';
 
 		socket = new WebSocket(wsUrl);
 
