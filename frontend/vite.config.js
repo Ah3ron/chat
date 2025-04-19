@@ -4,17 +4,17 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
-	server: {
-		proxy: {
-			'/ws': {
-				target: process.env.VITE_WS_URL || 'ws://backend:3000',
-				ws: true,
-				changeOrigin: true,
-			},
-			'/api': {
-				target: process.env.VITE_WS_URL || 'ws://backend:3000',
-				changeOrigin: true
-			}
-		}
-	}
+	// server: {
+	// 	proxy: {
+	// 		'/ws': {
+	// 			target: process.env.VITE_WS_URL || 'ws://backend:3000',
+	// 			ws: true,
+	// 			changeOrigin: true,
+	// 		},
+	// 		'/api': {
+	// 			target: process.env.VITE_WS_URL || 'ws://backend:3000',
+	// 			changeOrigin: true
+	// 		}
+	// 	}
+	// }
 });
