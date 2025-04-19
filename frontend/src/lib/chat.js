@@ -2,13 +2,18 @@ import { writable } from 'svelte/store';
 
 function createChatStore() {
 	let socket;
+	let wsUrl;
 	const messages = writable([]);
 	const status = writable('disconnected');
 
 	function connect() {
-		const wsUrl = "wss://backend-production-c88a.up.railway.app/ws" || 'ws://localhost:3000/ws';
-
+		if (!import.meta.env.SERVER_URL) {
+			wsUrl = 'ws://localhost:3000/ws';
+		} else {
+			wsUrl = "wss://" + import.meta.env.SERVER_URL + "/ws" 
+		}
 		socket = new WebSocket(wsUrl);
+
 
 		socket.onopen = () => {
 			status.set('connected');

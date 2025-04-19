@@ -13,6 +13,6 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        VITE_WS_URL: ws://backend:3000/ws
+        SERVER_URL: ws://backend:3000/ws
     ports:
       - '5173:80'

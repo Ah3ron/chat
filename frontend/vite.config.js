@@ -7,12 +7,12 @@ export default defineConfig({
 	server: {
 		proxy: {
 			'/ws': {
-				target: process.env.VITE_WS_URL || 'ws://backend:3000',
+				target: process.env.SERVER_URL || 'ws://backend:3000',
 				ws: true,
 				changeOrigin: true,
 			},
 			'/api': {
-				target: process.env.VITE_WS_URL || 'ws://backend:3000',
+				target: process.env.SERVER_URL || 'ws://backend:3000',
 				changeOrigin: true
 			}
 		}
