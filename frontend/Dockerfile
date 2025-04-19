@@ -7,7 +7,7 @@ RUN npm install -g pnpm
 COPY package.json pnpm-lock.yaml ./
 
 ENV NODE_ENV=development
-
+ENV PUBLIC_SERVER_URL=backend-production-c88a.up.railway.app
 RUN pnpm install --frozen-lockfile
 RUN pnpm add vite --save-dev
 
